@@ -56,10 +56,3 @@ RUN apt-get remove -y libnice-dev libnice10 && \
     ./configure --prefix=/usr && \
     make && \
     make install
-
-#coturn
-RUN COTURN="4.5.0.8" && wget https://github.com/coturn/coturn/archive/$COTURN.tar.gz && \
-    tar xzvf $COTURN.tar.gz && \
-    cd coturn-$COTURN && \
-    ./configure && \
-    make && make install

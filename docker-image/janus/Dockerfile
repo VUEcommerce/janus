@@ -57,13 +57,6 @@ RUN apt-get remove -y libnice-dev libnice10 && \
     make && \
     make install
 
-# coturn
-RUN COTURN="4.5.0.8" && wget https://github.com/coturn/coturn/archive/$COTURN.tar.gz && \
-    tar xzvf $COTURN.tar.gz && \
-    cd coturn-$COTURN && \
-    ./configure && \
-    make && make install
-
 # tag v0.8.1 https://github.com/meetecho/janus-gateway/commit/1e6ac78842ba76613ea0991dda7b1e28078507be
 RUN cd / && git clone https://github.com/meetecho/janus-gateway.git && cd /janus-gateway && \
     sh autogen.sh &&  \
@@ -71,6 +64,7 @@ RUN cd / && git clone https://github.com/meetecho/janus-gateway.git && cd /janus
     --disable-rabbitmq \
     --disable-mqtt \
     --disable-unix-sockets \
+    --disable-data-channel \
     --enable-plugin-echotest \
     --enable-plugin-recordplay \
     --enable-plugin-sip \
