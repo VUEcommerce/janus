@@ -75,11 +75,3 @@ RUN cd / && git clone https://github.com/meetecho/janus-gateway.git && cd /janus
     make && make install && make configs && ldconfig
 
 CMD janus
-
-# RUN apt-get -y install iperf iperf3
-# RUN git clone https://github.com/HewlettPackard/netperf.git && \
-#     cd netperf && \
-#     bash autogen.sh && \
-#     ./configure && \
-#     make && \
-#     make install
